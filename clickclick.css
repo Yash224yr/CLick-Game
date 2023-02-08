@@ -1,0 +1,114 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Roboto Mono', monospace;
+}
+
+.first {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(to right, #2F0743, #41295a);
+}
+
+.first button {
+
+    font-size: 30px;
+    background-color: lightyellow;
+    border-radius: 40px;
+    width: 200px;
+    height: 70px;
+    cursor: pointer;
+}
+
+.hide {
+    display: none;
+    opacity: 0;
+}
+
+.second {
+    display: none;
+    height: 100vh;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background: linear-gradient(to right, #29323c, #485563);
+}
+
+.second h1 {
+    color: gold;
+}
+
+.Player img {
+    height: 200px;
+    width: 200px;
+    margin: 30px;
+    cursor: pointer;
+}
+
+.Player img:hover {
+    transform: scale(1.25);
+}
+
+.Player {
+    display: flex;
+    margin-top: 20px;
+}
+
+.third {
+    display: none;
+}
+
+.limit {
+    display: none;
+    height: 100vh;
+    justify-content: center;
+    align-items: center;
+    background-color: rebeccapurple;
+    flex-direction: column;
+}
+
+input {
+    height: 63px;
+    width: 332px;
+    margin: 20px;
+    padding: 0 7px;
+    font-size: 20px;
+}
+
+.limit button {
+    cursor: pointer;
+    height: 28px;
+    width: 100px;
+}
+
+.limit button:hover {
+    transform: scale(1.25);
+}
+
+.blank img {
+    height: 80px;
+    width: 80px;
+    position: absolute;
+}
+
+.blank {
+    position: relative;
+    height: 85vh;
+}
+
+.four {
+    height: 100vh;
+    display: none;
+    justify-content: center;
+    align-items: center;
+    font-size: 50px;
+    flex-direction: column;
+    background: linear-gradient(to right, #C06C84, #6C5B7B, #355C7D);
+}
+
+.four h2 {
+    color: white;
+}

@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="clickclick.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    
+</head>
+
+<body>
+    <div id="wrapper">
+        <div class="first">
+            <button>Start Game</button>
+        </div>
+        <div class="second">
+            <h1>Choose Your Player</h1>
+            <div class="Player">
+                <div class="one">
+                    <img src="images/64dd213f67fd94aebe9613166c8fa9d5.png" alt="">
+                </div>
+                <div class="two">
+                    <img src="images/Shin-Chan-PNG-Background.png" alt="">
+                </div>
+                <div class="three">
+                    <img src="images/bcf0272b061414169e8d2e21659223c7-removebg-preview.png" alt="">
+                </div>
+            </div>
+        </div>
+        <div class="limit">
+            <input type="number" placeholder="Enter Time Limit in seconds">
+            <button>Lets Play </button>
+        </div>
+        <div class="third">
+            <div class="time">
+                <h1>Time : <span>0</span></h1>
+            </div>
+            <div class="score">
+                <h1>Score : <span>0</span></h1>
+            </div>
+            <div class="blank"></div>
+        </div>
+        <div class="four">
+            <h1>Game Over</h1>
+            <h2>Your Score  : </h2>
+        </div>
+    </div>
+
+
+
+    <script>
+        let btn = document.querySelector(".first button")
+        let image = document.querySelectorAll("img")
+        let timer = document.querySelector(".time h1 span")
+        let score = document.querySelector(".score h1 span  ")
+        let btn2 =document.querySelector(".limit button")
+        let input=document.querySelector("input")
+        let blank = document.querySelector(".blank")
+        let four=document.querySelector(".four")
+        let btn3=document.querySelector(".four button")
+        let head=document.querySelector(".four h2")
+        
+        btn.onclick = () => {
+            document.querySelector(".first").style.display = "none"
+            document.querySelector(".second").style.display = "flex"
+        }
+
+
+        for (let i = 0; i < image.length; i++) {
+            image[i].onclick = () => {
+                document.querySelector(".limit").style.display="flex"
+                document.querySelector(".second").style.display="none"
+            }
+        }
+
+
+        function Timer(a) {
+          let stop= setInterval(()=>{
+            if(Number(timer.innerHTML)<a){
+                timer.innerHTML=Number(timer.innerHTML)+1
+            }
+            else{
+                clearInterval(stop)
+            }
+           },1000)
+        }
+
+        btn2.onclick=()=>{
+            document.querySelector(".limit").style.display="none"
+            document.querySelector(".third").style.display="block"
+            Timer(input.value)
+            showimage(input.value)
+        }
+        function hideimage(tap){
+            tap.remove()
+            score.innerHTML=Number(score.innerHTML)+1
+        }
+
+        function showimage(b){
+         let stop=   setInterval(()=>{
+                if(Number(timer.innerHTML)<b){
+                    let player= document.createElement("img")
+                   player.src="images/bcf0272b061414169e8d2e21659223c7-removebg-preview.png"
+                   blank.insertAdjacentElement("beforeend",player)
+                    let x = blank.clientHeight
+                    let y= blank.clientWidth
+                    let ran = Math.floor(Math.random()*(x-70))
+                    let  run = Math.floor(Math.random()*(y-80))
+                    player.style.left=run+'px'
+                    player.style.top=ran+'px'
+                    player.setAttribute("onclick"  , "hideimage(this)")
+                }
+                else{
+                    document.querySelector(".third").style.display="none"
+                    four.style.display="flex"
+                    head.append(score.innerHTML)
+                    clearInterval(stop)
+                }   
+                },400)
+                
+        }
+
+       
+
+
+    </script>
+</body>
+
+</html>
